@@ -6,9 +6,9 @@ Glue package between [VoronoiFVM.jl](https://github.com/j-fu/VoronoiFVM.jl) and 
 The package extends the constructors for `ODEFunction` and `ODEProblem` by methods taking in a `VoronoiFVM.System`:
 
 ```
-ODEFunction(sys::VoronoiFVM.System; jacval=unknowns(sys,0), tjac=0)
-ODEProblem(sys::VoronoiFVM.System,inival,tspan,callback=DifferentialEquations.CallbackSet())
-reshape(odesolution, sys::VoronoiFVM.System)
+problem=ODEProblem(sys::VoronoiFVM.System,inival,tspan,callback=DifferentialEquations.CallbackSet())
+odesolution=DifferentialEquations.solve(problem)
+voronoifvmsolution=reshape(odesolution, sys::VoronoiFVM.System)
 ```
 
 
