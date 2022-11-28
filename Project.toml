@@ -1,24 +1,18 @@
 name = "VoronoiFVMDiffEq"
 uuid = "c4d4532c-19f6-4375-9ced-3808a145cd37"
 authors = ["Jürgen Fuhrmann <juergen-fuhrmann@web.de>"]
-version = "0.1.0"
+version = "0.0.1"
 
 [deps]
-DiffResults = "163ba53b-c6d8-5494-b064-1a9d43ac40c5"
 DifferentialEquations = "0c46a032-eb83-5123-abaf-570d42b7fbaa"
-DocStringExtensions = "ffbed154-4ef7-542d-bbb7-c09d3a79fcae"
-ExtendableGrids = "cfc395e8-590f-11e8-1f13-43a2532b2fa8"
-ExtendableSparse = "95c220a8-a1cf-11e9-0c77-dbfce5f500b3"
-ForwardDiff = "f6369f11-7733-5829-9624-2563aa707210"
-GridVisualize = "5eed8a63-0fb0-45eb-886d-8d5a387d12b8"
 LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
 RecursiveArrayTools = "731186ca-8d62-57ce-b412-fbd966d074cd"
+Reexport = "189a3867-3050-52da-a836-e630ba90ab69"
 VoronoiFVM = "82b139dc-5afc-11e9-35da-9b9bdfd336f3"
 
 [compat]
-DifferentialEquations = "6"
-ExtendableGrids = "0.8.3,0.9"
-ExtendableSparse = "0.8"
-GridVisualize = "^0.4.7, 0.5"
-VoronoiFVM = "0.18"
-RecursiveArrayTools="2"
+DifferentialEquations = "7.6"
+RecursiveArrayTools = "2"
+VoronoiFVM = "0.18.4"
+Reexport = "1"
+julia = "1.6"
