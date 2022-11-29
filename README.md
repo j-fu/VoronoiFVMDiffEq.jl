@@ -11,4 +11,6 @@ odesolution=DifferentialEquations.solve(problem)
 voronoifvmsolution=reshape(odesolution, sys::VoronoiFVM.System)
 ```
 
+It re-exports VoronoiFVM, so that it is sufficient to `use` this package instead of VoronoiFVM.
+
 

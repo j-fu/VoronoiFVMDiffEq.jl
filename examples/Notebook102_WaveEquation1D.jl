@@ -202,7 +202,7 @@ html"""<hr>"""
 
 # ╔═╡ dd91ee3d-0739-4ec0-a1cb-642be792594b
 md"""
-This notebook uses the test environment of the package and cannot be started outside of the `examples` subdirectory. To make it relocateable, make the next cell a markdown cell. Please be aware that this way, version information on dependencies gets lost.
+This notebook uses the test environment of the package and cannot be started outside of the `examples` subdirectory. To make it relocateable, make the next cell a markdown cell and restart the notebook. Please be aware that this way, version information is rebuilt from scratch.
 """
 
 # ╔═╡ Cell order:
