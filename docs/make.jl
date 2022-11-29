@@ -1,5 +1,5 @@
+using LinearAlgebra, Pkg
 using Documenter, VoronoiFVMDiffEq, PlutoSliderServer
-using LinearAlgebra
 
 
 
@@ -54,7 +54,7 @@ this [Pluto.jl](https://github.com/fonsp/Pluto.jl) notebook.
     
         
     makedocs(
-        sitename="VoronoiFVM.jl",
+        sitename="VoronoiFVMDiffEq.jl",
         modules = [VoronoiFVM],
         clean = false, 
         doctest = true,
