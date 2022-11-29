@@ -16,9 +16,10 @@ end
 
 # ╔═╡ 6d467640-b19c-4f77-845d-f9b4aca62104
 begin
-	using Pkg
-	push!(LOAD_PATH,joinpath("..")) # Stack with package environment
-	Pkg.activate(joinpath("..","test"))
+    using Pkg
+    push!(LOAD_PATH,joinpath("..")) # Stack with package environment
+    Pkg.activate(joinpath("..","test"))
+    Pkg.instantiate()
 end
 
 # ╔═╡ 7b4b635d-c600-4d6a-9cef-64bd97eb6a3e

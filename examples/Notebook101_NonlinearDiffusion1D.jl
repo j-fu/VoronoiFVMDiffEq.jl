@@ -16,9 +16,10 @@ end
 
 # ╔═╡ 6d467640-b19c-4f77-845d-f9b4aca62104
 begin
-	using Pkg
-	push!(LOAD_PATH,joinpath("..")) # Stack with package environment
-	Pkg.activate(joinpath("..","test"))# activate test environment
+    using Pkg
+    push!(LOAD_PATH,joinpath("..")) # Stack with package environment
+    Pkg.activate(joinpath("..","test"))# activate test environment
+    Pkg.instantiate()
 end
 
 # ╔═╡ 7b4b635d-c600-4d6a-9cef-64bd97eb6a3e
@@ -143,11 +144,11 @@ t2=@elapsed sol2,sys2,err2=run_diffeq(m=m,n=n,solver=diffeqmethods[method]());hi
 
 # ╔═╡ 0676e28e-4e4e-4976-ab57-fb2d2e062625
 let
-	aspect=600
-	vis=GridVisualizer(Plotter=PlutoVista,layout=(1,2),resolution=(650,300))
+    aspect=600
+    vis=GridVisualizer(Plotter=PlutoVista,layout=(1,2),resolution=(650,300))
     scalarplot!(vis[1,1],sys1,sol1;aspect)
-	scalarplot!(vis[1,2],sys2,sol2;aspect)
-	reveal(vis)
+    scalarplot!(vis[1,2],sys2,sol2;aspect)
+    reveal(vis)
 end
 
 # ╔═╡ 2535425f-da87-4488-a834-f523a260bfde
