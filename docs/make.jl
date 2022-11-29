@@ -35,7 +35,7 @@ function make_all()
         mdstring=
 """
 ##### [$(base).jl](@id $(base))
-[Download](https://github.com/j-fu/VoronoiDiffEqFVM.jl/blob/master/examples/$(notebook))
+[Download](https://github.com/j-fu/VoronoiFVMDiffEq.jl/blob/main/examples/$(notebook))
 this [Pluto.jl](https://github.com/fonsp/Pluto.jl) notebook.
 
 ```@raw html

@@ -17,8 +17,7 @@ end
 # ╔═╡ 6d467640-b19c-4f77-845d-f9b4aca62104
 begin
     using Pkg
-    push!(LOAD_PATH,joinpath("..")) # Stack with package environment
-    Pkg.activate(joinpath("..","test"))
+    Pkg.activate(joinpath(@__DIR__,"..","docs"))# activate test environment
     Pkg.instantiate()
 end
 
@@ -115,7 +114,7 @@ html"""<hr>"""
 
 # ╔═╡ dd91ee3d-0739-4ec0-a1cb-642be792594b
 md"""
-This notebook uses the test environment of the package and cannot be started outside of the `examples` subdirectory. To make it relocateable, make the next cell a markdown cell. Please be aware that this way, version information on dependencies gets lost.
+This notebook uses the documentation environment of the package and cannot be started outside of the `examples` subdirectory. To make it relocateable, make the next cell a markdown cell. Please be aware that this way, version information on dependencies gets lost.
 """
 
 # ╔═╡ 2d439adf-c6b8-4e28-bb6a-58e00a9823ac
