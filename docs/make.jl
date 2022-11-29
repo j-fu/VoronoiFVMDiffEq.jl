@@ -5,6 +5,11 @@ using LinearAlgebra
 
 
 function make_all()
+    wd=pwd()
+    Pkg.activate(joinpath("..","test"))
+    Pkg.instantiate()
+    Pkg.activate(wd)
+                 
     ENV["VORONOIFVM_CHECK_ALLOCS"]="false"
     generated_examples=[]
     notebook_html_dir  = joinpath(@__DIR__,"src","nbhtml")

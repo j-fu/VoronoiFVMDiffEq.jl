@@ -55,6 +55,8 @@ jobs:
         with:
           version: '1'
       - run: |
+          julia --project=docs docs/addnursery.jl
+      - run: |
           julia --project=docs -e '
             using Pkg
             Pkg.develop(PackageSpec(path=pwd()))
