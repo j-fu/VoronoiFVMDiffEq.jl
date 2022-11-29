@@ -126,7 +126,7 @@ Layout.hbox([
    md""" ``\quad``""",
 	md""" method: $(@bind bruss_method Select([keys(diffeqmethods)...]))""",
     md""" ``\quad``""",
-	md"""t=$(@bind t_bruss Slider(0:bruss_tend/1000:bruss_tend,show_value=true))"""
+	md"""t=$(@bind t_bruss Slider(0:bruss_tend/1000:bruss_tend,show_value=true,default=bruss_tend))"""
 ])
 
 # ╔═╡ d48ad585-9d0a-4b7e-a54b-3c76d8a5ca21
