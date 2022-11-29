@@ -32,6 +32,11 @@ jobs:
           arch: ${{ matrix.arch }}
       - run: |
           julia --project=docs docs/addnursery.jl
+      - run: |
+          julia --project=docs -e '
+            using Pkg
+            Pkg.develop(PackageSpec(path=pwd()))
+            Pkg.instantiate()'
       - uses: actions/cache@v1
         env:
           cache-name: cache-artifacts
