@@ -32,6 +32,9 @@ function testnotebook(input)
 end
 
 function run_all_tests()
+    wd=pwd()
+    Pkg.instantiate()
+    Pkg.activate(wd)
 
     ENV["VORONOIFVM_CHECK_ALLOCS"]="true"
     notebooks=["Notebook101_NonlinearDiffusion1D.jl",

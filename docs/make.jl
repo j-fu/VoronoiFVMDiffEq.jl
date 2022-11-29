@@ -5,10 +5,6 @@ using Documenter, VoronoiFVMDiffEq, PlutoSliderServer
 
 
 function make_all()
-    wd=pwd()
-    Pkg.activate(joinpath("..","test"))
-    Pkg.instantiate()
-    Pkg.activate(wd)
                  
     ENV["VORONOIFVM_CHECK_ALLOCS"]="false"
     generated_examples=[]
