@@ -31,7 +31,7 @@ begin
 	using LinearAlgebra
 	using PlutoUI
 	using DataStructures
-	using GridVisualize,PyPlot
+	using GridVisualize,PlutoVista
 end
 
 # ╔═╡ 02424193-41e8-4cec-8f52-6fd66173ace8
@@ -89,6 +89,7 @@ function create_porous_medium_problem(n,m)
 end
 
 # ╔═╡ 4ef024a4-cb1d-443d-97fb-ab3a32a78ffd
+begin
 function run_vfvm(;n=20,m=2,t0=0.001, tend=0.01,tstep=1.0e-6)
     sys,X=create_porous_medium_problem(n,m)
     inival=unknowns(sys)
@@ -97,10 +98,20 @@ function run_vfvm(;n=20,m=2,t0=0.001, tend=0.01,tstep=1.0e-6)
     err=norm(sol[1,:,end]-map(x->barenblatt(x,tend,m),X))
     sol,sys,err
 end
+run_vfvm(m=2,n=10) # "Precompile"
+end;
 
+# ╔═╡ 2a8ac57e-486d-4825-95ab-f0402b910dbd
+diffeqmethods=OrderedDict(
+"Rosenbrock23 (Rosenbrock)" => Rosenbrock23,
+"QNDF2 (Like matlab's ode15s)" =>  QNDF2,
+"FBDF" => FBDF,
+"Implicit Euler" => ImplicitEuler
+)
 
 # ╔═╡ ae73aa4e-3176-4d68-b4ca-4875c75ee34c
-function run_diffeq(;n=20,m=2, t0=0.001,tend=0.01,solver=nothing)
+begin
+	function run_diffeq(;n=20,m=2, t0=0.001,tend=0.01,solver=nothing)
     sys,X=create_porous_medium_problem(n,m)
     inival=unknowns(sys)
     inival[1,:].=map(x->barenblatt(x,t0,m),X)
@@ -109,16 +120,12 @@ function run_diffeq(;n=20,m=2, t0=0.001,tend=0.01,solver=nothing)
     sol=reshape(odesol,sys)
     err=norm(sol[1,:,end]-map(x->barenblatt(x,tend,m),X))
     sol, sys,err
-end
+    end
 
-# ╔═╡ 2a8ac57e-486d-4825-95ab-f0402b910dbd
-diffeqmethods=OrderedDict(
-"Rosenbrock23 (Rosenbrock)" => Rosenbrock23,
-"QNDF2" =>  QNDF2,
-"FBDF" => FBDF,
-"Implicit Euler" => ImplicitEuler,
-"Implicit Midpoint" => ImplicitMidpoint,
-)
+for method in diffeqmethods
+    run_diffeq(m=2,n=10,solver=method.second()) # "Precompile"
+end
+end;
 
 # ╔═╡ 3a004ab9-2705-4f5c-8e6e-10d508cc9a1b
 md"""
@@ -137,17 +144,17 @@ t2=@elapsed sol2,sys2,err2=run_diffeq(m=m,n=n,solver=diffeqmethods[method]());hi
 # ╔═╡ 0676e28e-4e4e-4976-ab57-fb2d2e062625
 let
 	aspect=600
-	vis=GridVisualizer(Plotter=PyPlot,layout=(1,2),resolution=(650,300))
-	title=@sprintf("VoronoiFVM: %.0f ms e=%.2e",t1*1000,err1)
-    scalarplot!(vis[1,1],sys1,sol1;title,aspect)
-   	title=@sprintf("    DiffEq: %.0f ms, e=%.2e",t2*1000,err2) 
-	scalarplot!(vis[1,2],sys2,sol2;title,aspect)
+	vis=GridVisualizer(Plotter=PlutoVista,layout=(1,2),resolution=(650,300))
+    scalarplot!(vis[1,1],sys1,sol1;aspect)
+	scalarplot!(vis[1,2],sys2,sol2;aspect)
 	reveal(vis)
 end
 
 # ╔═╡ 2535425f-da87-4488-a834-f523a260bfde
 md"""
-(times shown in plots may include compilation time)
+Left: $(@sprintf("VoronoiFVM: %.0f ms e=%.2e",t1*1000,err1)), Right: $(@sprintf("    DiffEq: %.0f ms, e=%.2e",t2*1000,err2))
+
+(Times may include compilation time)
 """
 
 # ╔═╡ 84a29eb7-d936-4bd3-b15f-2886a4ca4985
@@ -167,10 +174,10 @@ This notebook uses the test environment of the package and cannot be started out
 # ╠═870b8b91-cd74-463e-b258-c092cd0af200
 # ╠═78208d7b-9d79-415c-ab3a-85948251e635
 # ╠═4ef024a4-cb1d-443d-97fb-ab3a32a78ffd
+# ╠═2a8ac57e-486d-4825-95ab-f0402b910dbd
 # ╠═ae73aa4e-3176-4d68-b4ca-4875c75ee34c
 # ╠═12ab322c-60ae-419f-9334-82f2f7ee7b59
-# ╠═2a8ac57e-486d-4825-95ab-f0402b910dbd
-# ╠═3a004ab9-2705-4f5c-8e6e-10d508cc9a1b
+# ╟─3a004ab9-2705-4f5c-8e6e-10d508cc9a1b
 # ╠═3e1e62ec-c50a-499e-b516-8478904429c5
 # ╠═604898ba-1e8f-4c7c-9711-9958a8351854
 # ╟─0676e28e-4e4e-4976-ab57-fb2d2e062625

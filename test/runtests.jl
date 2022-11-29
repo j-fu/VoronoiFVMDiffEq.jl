@@ -34,7 +34,9 @@ end
 function run_all_tests()
 
     ENV["VORONOIFVM_CHECK_ALLOCS"]="true"
-    notebooks=["Notebook101_NonlinearDiffusion1D.jl","Notebook102_WaveEquation1D.jl"]
+    notebooks=["Notebook101_NonlinearDiffusion1D.jl",
+               "Notebook102_WaveEquation1D.jl",
+               "Notebook203_Brusselator.jl"]
     
     @testset "notebooks" begin
         for notebook in notebooks
