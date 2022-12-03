@@ -1,4 +1,5 @@
 [deps]
+DASSL = "e993076c-0cfd-5d6b-a1ac-36489fdf7917"
 DataStructures = "864edb3b-99cc-5e75-8d2d-829cb0a9cfe8"
 DifferentialEquations = "0c46a032-eb83-5123-abaf-570d42b7fbaa"
 Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
@@ -14,4 +15,5 @@ Printf = "de0858da-6303-5e67-8744-51eddeeeb8d7"
 Revise = "295af30f-e4ad-537b-8983-00126c2a3abe"
 SciMLBase = "0bca4576-84f4-4d90-8ffe-ffa030f20462"
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+VoronoiFVM = "82b139dc-5afc-11e9-35da-9b9bdfd336f3"
 VoronoiFVMDiffEq = "c4d4532c-19f6-4375-9ced-3808a145cd37"

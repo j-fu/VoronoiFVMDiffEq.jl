@@ -8,13 +8,16 @@ VoronoiFVMDiffEq.jl
 Glue package between [VoronoiFVM.jl](https://github.com/j-fu/VoronoiFVM.jl) and [DifferentialEquations.jl](https://github.com/SciML/DifferentialEquations.jl)
 
 The package extends the constructors for `ODEFunction` and `ODEProblem` by methods taking in a `VoronoiFVM.System`:
-
 ```
-problem=ODEProblem(sys::VoronoiFVM.System,inival,tspan,callback=DifferentialEquations.CallbackSet())
-odesolution=DifferentialEquations.solve(problem)
-voronoifvmsolution=reshape(odesolution, sys::VoronoiFVM.System)
+using VoronoiFVMDiffEq, DifferentialEquations
+system = VoronoiFVM.System(...)
+inival = unknowns(system)
+problem = ODEProblem(system,inival,tspan)
+odesolution = DifferentialEquations.solve(problem, QNDF2())
+voronoifvmsolution = reshape(odesolution, system)
 ```
+Instead of [`QNDF2`](https://sciml.ai/news/2021/05/24/QNDF/) you can try all mass matrix form capable stiff ode solvers form the  [DifferentialEquations.jl](https://github.com/SciML/DifferentialEquations.jl) suite.
 
-It re-exports VoronoiFVM, so that it is sufficient to `use` this package instead of VoronoiFVM.
+The package re-exports all of VoronoiFVM, so that it is sufficient to `use` this package instead of [VoronoiFVM.jl](https://github.com/j-fu/VoronoiFVM.jl).
 
 The package requires a recent Julia version (currently 1.8) due to significant advances in package precompilation.

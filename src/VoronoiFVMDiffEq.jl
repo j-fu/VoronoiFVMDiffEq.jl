@@ -1,6 +1,5 @@
 module VoronoiFVMDiffEq
 
-
 import DifferentialEquations
 import SciMLBase
 using RecursiveArrayTools
@@ -12,8 +11,9 @@ using Reexport
 """
      ODEFunction(system,inival=unknowns(system,inival=0),t0=0)
     
-Create an [ODEPFunction](https://diffeq.sciml.ai/stable/basics/overview/#Defining-Problems) which can 
-be handeled by ODE solvers from [DifferentialEquations.jl](https://github.com/SciML/DifferentialEquations.jl).
+Create an [ODEPFunction](https://diffeq.sciml.ai/stable/basics/overview/#Defining-Problems)
+in [mass matrix form](https://diffeq.sciml.ai/stable/solvers/dae_solve/#OrdinaryDiffEq.jl-(Mass-Matrix))
+to be handeled by ODE solvers from [DifferentialEquations.jl](https://github.com/SciML/DifferentialEquations.jl).
 
 Parameters:
 - `system`: A [`VoronoiFVM.System`](https://j-fu.github.io/VoronoiFVM.jl/stable/system/#VoronoiFVM.System-Tuple{ExtendableGrid})
@@ -34,8 +34,9 @@ end
 """
     ODEProblem(system,inival,tspan,callback=DifferentialEquations.CallbackSet())
     
-Create an [ODEProblem](https://diffeq.sciml.ai/stable/basics/overview/#Defining-Problems) which can 
-be handeled by ODE solvers from [DifferentialEquations.jl](https://github.com/SciML/DifferentialEquations.jl).
+Create an [ODEProblem](https://diffeq.sciml.ai/stable/basics/overview/#Defining-Problems)
+in [mass matrix form](https://diffeq.sciml.ai/stable/solvers/dae_solve/#OrdinaryDiffEq.jl-(Mass-Matrix))
+which can  be handeled by ODE solvers from [DifferentialEquations.jl](https://github.com/SciML/DifferentialEquations.jl).
 
 Parameters:
 - `system`: A [`VoronoiFVM.System`](https://j-fu.github.io/VoronoiFVM.jl/stable/system/#VoronoiFVM.System-Tuple{ExtendableGrid})
@@ -54,6 +55,8 @@ end
 """
     reshape(ode_solution, system)
 Create a [`TransientSolution`](@ref) from the output of the ode solver.
+The main difference between them is that the [`TransientSolution`](https://j-fu.github.io/VoronoiFVM.jl/stable/solutions/#VoronoiFVM.TransientSolution)
+reflects the species structure of the probem which is not seen by the ODE solver.
 """
 function Base.reshape(sol::AbstractDiffEqArray, sys::VoronoiFVM.AbstractSystem)
      TransientSolution([reshape(sol.u[i],sys) for i=1:length(sol.u)] ,sol.t)
