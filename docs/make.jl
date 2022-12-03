@@ -18,6 +18,7 @@ function make_all()
         notebooks=[
             "1D nonlinear diffusion" => "Notebook101_NonlinearDiffusion1D.jl",
             "1D wave equation" => "Notebook102_WaveEquation1D.jl",
+            "1D nonlinear storage" => "Notebook103_NonlinearStorage1D.jl",
             "1D/2D brusselator" => "Notebook203_Brusselator.jl"
         ]
         
