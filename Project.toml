@@ -15,6 +15,7 @@ VoronoiFVM = "82b139dc-5afc-11e9-35da-9b9bdfd336f3"
 
 [compat]
 DifferentialEquations = "7.6"
+LinearSolve = "1"
 RecursiveArrayTools = "2"
 Reexport = "1"
 SciMLBase = "1.76"
