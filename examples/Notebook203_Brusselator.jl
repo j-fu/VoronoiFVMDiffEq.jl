@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.19.16
+# v0.19.19
 
 using Markdown
 using InteractiveUtils
@@ -189,9 +189,9 @@ scalarplot!(bruvis[2],bruss_grid,bruss_sol[2,:],limits=(0.5,3),show=true,colorma
 # ╠═719a15e1-7a69-4e70-b20e-d75fa448458e
 # ╠═62a1dad1-b095-4df9-b1f8-e6a97084d8f8
 # ╠═e71a2ed0-5f39-473f-87a0-6f61748f2793
-# ╟─c1da7d8e-2921-4366-91f0-dc8e1834595b
+# ╠═c1da7d8e-2921-4366-91f0-dc8e1834595b
 # ╟─1462d783-93d3-4ad4-8701-90bde88c7553
-# ╟─e7a8aae1-8e7a-4b7d-8ce6-701ea586b89a
+# ╠═e7a8aae1-8e7a-4b7d-8ce6-701ea586b89a
 # ╠═4a4a2f78-4d4c-4b9b-883e-1e57de41c9a9
 # ╠═59049ff3-8f18-4adc-aded-2ffb752ce574
 # ╠═52b2c6dc-650d-4a1f-bb94-757c9cff9ee6
