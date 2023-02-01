@@ -18,7 +18,9 @@ end
 begin
     using Pkg
     Pkg.activate(joinpath(@__DIR__,"..","docs"))# activate test environment
+    Pkg.status()
     Pkg.instantiate()
+    Pkg.status()
 end
 
 # ╔═╡ 7b4b635d-c600-4d6a-9cef-64bd97eb6a3e
