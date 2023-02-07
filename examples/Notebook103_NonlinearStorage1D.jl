@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.19.16
+# v0.19.22
 
 using Markdown
 using InteractiveUtils
@@ -300,7 +300,7 @@ This notebook uses the documentation environment of the package and cannot be st
 # ╟─39e4fd5f-70a6-41e9-a02d-b11709762c19
 # ╠═89212312-7846-4a2f-a4b8-bd7b61235cf9
 # ╟─b4f4baa2-64a2-464c-9e19-a39b490d210a
-# ╠═8079ba59-7595-4109-805a-32d135d383f9
+# ╟─8079ba59-7595-4109-805a-32d135d383f9
 # ╟─5e09155b-1b9e-43a2-983f-4be15557b513
 # ╠═da7645c2-d254-4886-b2b6-28289368fc22
 # ╟─b35c0d6a-1b76-4396-992a-0e35d7d99cb1
