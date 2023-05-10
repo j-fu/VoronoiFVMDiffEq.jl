@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.19.22
+# v0.19.25
 
 using Markdown
 using InteractiveUtils
@@ -249,12 +249,12 @@ end
 
 
 # ╔═╡ 9340c3a2-12f9-4f0e-9e5b-3c960388f9cc
-myaside(md"""$(vis=GridVisualizer(resolution=(380,200),dim=1,Plotter=PlutoVista,legend=:lt);)""",top=300)
+myaside(md"""$(vis=GridVisualizer(resolution=(380,200),dim=1,Plotter=PlutoVista,legend=:lt);)""",top=250)
 
 # ╔═╡ 1a5c5b50-8aea-47b9-9961-5d74e93e9d69
 myaside(md"""
 t=$(@bind t  PlutoUI.Slider(range(t0,tend,length=10001),default=2*t0;show_value=true)) 
-""",top=550)
+""",top=500)
 
 # ╔═╡ 7fdef034-feac-49e4-9b98-bf579ac5fd94
 let
