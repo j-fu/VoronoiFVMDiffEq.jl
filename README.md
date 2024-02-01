@@ -1,3 +1,9 @@
+> [!IMPORTANT]  
+> This package will be no longer maintained.
+> Its functionality is  available in [VoronoiFVM.jl](https://github.com/j-fu/VoronoiFVM.jl)
+> starting with version  1.18.  The repository will archived.
+
+
 [![linux-macos-windows](https://github.com/j-fu/VoronoiFVMDiffEq.jl/actions/workflows/ci.yml/badge.svg)](https://github.com/j-fu/VoronoiFVMDiffEq.jl/actions/workflows/ci.yml)
 [![](https://img.shields.io/badge/docs-stable-blue.svg)](https://j-fu.github.io/VoronoiFVMDiffEq.jl/stable)
 [![](https://img.shields.io/badge/docs-dev-blue.svg)](https://j-fu.github.io/VoronoiFVMDiffEq.jl/dev)
